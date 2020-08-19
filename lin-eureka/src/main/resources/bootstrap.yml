@@ -1,0 +1,25 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: lin-eureka
+  boot:
+    admin:
+      client:
+        prefer-ip: true
+#  cloud:
+#    inetutils:
+#      ignored-interfaces:
+#        - docker0
+#        - veth.*
+#      preferred-networks: 10.82
+  profiles:
+    active: uat
+
+log:
+  dir: /app/logs
+logging:
+  level:
+    root: info
+    com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver: WARN
+
