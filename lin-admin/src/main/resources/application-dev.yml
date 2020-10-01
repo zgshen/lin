@@ -1,0 +1,152 @@
+admin:
+  pool:
+    #核心线程数，100
+    corePoolSize: 100
+    #最大线程数，500
+    maxPoolSize: 500
+    #线程池维护线程所允许的空闲时间，300s
+    keepAliveSeconds: 300
+    #队列最大长度 2000
+    queueCapacity: 2000
+  # 文件上传路径
+  uploadPath: /lin/app/upload/
+  # 校验验证码开关
+  validate-captcha: true
+
+# 日志文件保持路径
+log:
+  dir: /lin/app/logs
+logging:
+  level:
+    root: info
+    com.ling.admin: info
+spring:
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://192.168.56.101:3306/lin?characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+          username: lin
+          password: Lin!@123
+          druid:
+            initialSize: 1
+            minIdle: 3
+            maxActive: 20
+            # 配置获取连接等待超时的时间
+            maxWait: 60000
+            # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            timeBetweenEvictionRunsMillis: 60000
+            # 配置一个连接在池中最小生存的时间，单位是毫秒
+            minEvictableIdleTimeMillis: 30000
+            validationQuery: select 'x' from dual
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            # 打开PSCache，并且指定每个连接上PSCache的大小
+            poolPreparedStatements: true
+            maxPoolPreparedStatementPerConnectionSize: 200
+            # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+            filters: stat,wall,slf4j
+            # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+            connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+            # 合并多个DruidDataSource的监控数据
+            #useGlobalDataSourceStat: true
+        slave:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://192.168.56.101:3306/lin?characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+          username: lin
+          password: Lin!@123
+          druid:
+            initialSize: 1
+            minIdle: 3
+            maxActive: 20
+            # 配置获取连接等待超时的时间
+            maxWait: 60000
+            # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            timeBetweenEvictionRunsMillis: 60000
+            # 配置一个连接在池中最小生存的时间，单位是毫秒
+            minEvictableIdleTimeMillis: 30000
+            validationQuery: select 'x' from dual
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            # 打开PSCache，并且指定每个连接上PSCache的大小
+            poolPreparedStatements: true
+            maxPoolPreparedStatementPerConnectionSize: 200
+            # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+            filters: stat,wall,slf4j
+            # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+            connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+            # 合并多个DruidDataSource的监控数据
+            #useGlobalDataSourceStat: true
+  redis:
+    database: 0
+    host: 192.168.102
+    port: 6379
+    timeout: 3000
+    password:
+    jedis:
+      pool:
+        max-active: 2000
+        max-wait: 1000
+        min-idle: 5
+        max-idle: 50
+    expire: 7200
+    #cluster:
+    #  nodes: 10.82.27.158:6380,10.82.27.159:6381
+# 分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: mybatis/**/*Mapper.xml,com/lin/**/mapper/**/*Mapper.xml
+  type-aliases-package: com.lin.admin.**.entity
+  type-aliases-super-type: java.lang.Object
+  global-config:
+    db-config:
+      # 全局 ID 生成策略:
+      # AUTO-数据库自增;INPUT-自行输入;ID_WORKER-分布式全局唯一ID 长整型类型;UUID-32位UUID字符串;NONE-无状态;ID_WORKER_STR-分布式全局唯一ID 字符串类型
+      id-type: AUTO
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# swagger
+swagger:
+  # 配置此属性后,所有资源都会屏蔽输出.
+  production: false
+  # 开启Swagger的Basic认证功能,默认是false
+  basic:
+    enable: false
+  # Basic认证用户名
+    username: swaggeradmin
+  # Basic认证密码
+    password: AqchNU50hUVENMA2
+
+# 配置信息
+prop:
+  # 系统信息配置
+  system:
+    name: "Lin Manage System"
+    logo-url: "/img/logo.png"
+    version: "dev"
+    # 是否仅作为 API 使用
+    only-api: false
+    # 不进行结果处理的接口类方法名称,使用 ";" 分割
+    no-processing-api: ajaxLogin;getSign;getSysInfo;encryptPwd;resetPwdUnAuth;swaggerResources;apiSorts;getDocumentation;
+
+login:
+  captcha:
+    time: 60
+
+httpClient:
+  httpSocketTimeOut: 10000
+  httpConnectTimeOut: 10000
+  httpConnectionRequestTimeout: 10000
+  proxyIp: 10.82.22.30
+  proxyPort: 8080
