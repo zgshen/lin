@@ -39,11 +39,11 @@ module.exports = {
     //before: require('./mock/mock-server.js')
     proxy: {
       //see request.js config
-      '/proxyApi': {
+      '/dev-api': {
         target: process.env.VUE_APP_BASE_APIProxy,
         changeOrigin: true,
         pathRewrite: {
-          '^/proxyApi': ""
+          '^/dev-api': ""
         }
       }
     }
