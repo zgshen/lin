@@ -63,7 +63,7 @@ public class ShiroConfig {
 
         filterChainDefinitionMap.put("/sys/sysConfig/getSysInfo", "anon");
         filterChainDefinitionMap.put("/getSign", "anon");
-        filterChainDefinitionMap.put("/login", "anon");
+        filterChainDefinitionMap.put("/user/login", "anon");
         filterChainDefinitionMap.put("/encryptAccount", "anon");
         filterChainDefinitionMap.put("/captcha", "anon");
         filterChainDefinitionMap.put("/sys/user/resetPwdUnAuth", "anon");
