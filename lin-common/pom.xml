@@ -14,5 +14,10 @@
     <artifactId>lin-common</artifactId>
     <version>1.0.0</version>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+    </dependencies>
 </project>
