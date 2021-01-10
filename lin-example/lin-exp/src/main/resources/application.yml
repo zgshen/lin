@@ -1,0 +1,10 @@
+server:
+  session-timeout: 7200
+  #    tomcat:
+  #        max-threads: 1000
+  #        min-spare-threads: 30
+  port: 8085
+
+redisson:
+  host:
+    config: redis://192.168.56.101:6379

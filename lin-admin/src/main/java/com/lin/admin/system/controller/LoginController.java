@@ -53,7 +53,7 @@ public class LoginController extends BaseController {
     Result login(String username, String password, String captcha, HttpServletRequest request) {
         String newPassword;
         String newUsername;
-
+        log.info("username:{}, password:{}", username, password);
         User userDO = userService.getByUsername(username);
         if (userDO == null) {
             return ResultUtil.renderFail(ResultEnum.PARAMS_ERROR.getCode(),"用户或密码错误");

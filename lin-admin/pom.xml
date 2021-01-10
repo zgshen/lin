@@ -94,7 +94,11 @@
             <artifactId>hutool-core</artifactId>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
