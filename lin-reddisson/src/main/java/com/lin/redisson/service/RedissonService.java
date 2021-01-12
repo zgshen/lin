@@ -1,4 +1,4 @@
-package com.lin.exp.service;
+package com.lin.redisson.service;
 
 import org.redisson.api.*;
 import org.redisson.config.Config;

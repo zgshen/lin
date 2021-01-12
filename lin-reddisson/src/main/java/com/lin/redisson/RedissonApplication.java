@@ -1,11 +1,11 @@
-package com.lin.exp;
+package com.lin.redisson;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ExpApplication {
+public class RedissonApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ExpApplication.class, args);
+        SpringApplication.run(RedissonApplication.class, args);
     }
 }

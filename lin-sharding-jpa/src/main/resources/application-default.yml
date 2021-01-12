@@ -1,0 +1,11 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.56.101:3306/lin1?characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: lin
+    password: Lin!@123
+    druid:
+      initialSize: 1
+      minIdle: 3
+      maxActive: 20

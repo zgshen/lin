@@ -1,0 +1,37 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.56.101:3306/lin0?characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+        username: lin
+        password: Lin!@123
+        initialSize: 1
+        minIdle: 3
+        maxActive: 20
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.56.101:3306/lin1?characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+        username: lin
+        password: Lin!@123
+        initialSize: 1
+        minIdle: 3
+        maxActive: 20
+    sharding:
+      default-database-strategy:
+        inline:
+          sharding-column: id
+          algorithm-expression: ds$->{id % 2}
+      tables:
+        coupon:
+          actual-data-nodes: ds$->{0..1}.coupon_$->{0..1}
+          table-strategy:
+            inline:
+              sharding-column: type
+              algorithm-expression: coupon_$->{type % 2}
+          key-generator:
+            column: id # 自增主键字段
+            type: SNOWFLAKE # 自增主键ID 生成方案 UUID、SNOWFLAKE

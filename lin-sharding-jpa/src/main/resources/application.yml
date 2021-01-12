@@ -1,0 +1,19 @@
+server:
+  session-timeout: 7200
+  #    tomcat:
+  #        max-threads: 1000
+  #        min-spare-threads: 30
+  port: 8086
+
+spring:
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  # 激活的配置文件
+  profiles:
+    active: shard
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: none

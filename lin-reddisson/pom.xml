@@ -6,11 +6,11 @@
         <artifactId>lin-parent</artifactId>
         <groupId>com.lin</groupId>
         <version>1.0.0</version>
-        <relativePath>../../lin-parent/pom.xml</relativePath>
+        <relativePath>../lin-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lin-exp</artifactId>
+    <artifactId>lin-reddisson</artifactId>
 
     <dependencies>
         <dependency>
@@ -37,5 +37,4 @@
         </dependency>
 
     </dependencies>
-
 </project>
