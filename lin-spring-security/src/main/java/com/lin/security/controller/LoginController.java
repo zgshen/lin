@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
 
     @GetMapping("/login")
-    public String index() {
+    public String login() {
         return "login";
     }
 }
