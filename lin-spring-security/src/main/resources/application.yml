@@ -1,8 +1,13 @@
 server:
   port: 8082
 
+## 1、配置文件方式
+#spring:
+#  security:
+#    user:
+#      name: admin
+#      password: 8487f5cb-f55a-45de-bf8f-8a4e005bed43
+
 spring:
-  security:
-    user:
-      name: admin
-      password: 8487f5cb-f55a-45de-bf8f-8a4e005bed43
+  thymeleaf:
+    cache: false
