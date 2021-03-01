@@ -1,0 +1,19 @@
+server:
+  port: 8800
+
+spring:
+  application:
+    name: lin-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: auth
+          #uri: lb://LIN-AUTH #动态路由方式需要配合注册中心使用
+          uri: http://localhost:8081
+          predicates:
+            - Path=/auth/**
+        - id: api
+            #uri: lb://LIN-API #动态路由方式需要配合注册中心使用
+            uri: http://localhost:8083
+            predicates:
+              - Path=/api/**
