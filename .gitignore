@@ -12,6 +12,9 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+/lin-test
+rebel.xml
+
 # Package Files #
 /*/target/
 *.jar
