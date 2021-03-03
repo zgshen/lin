@@ -17,4 +17,12 @@ public class ApiController {
         return info;
     }
 
+    @RequestMapping("/authtest")
+    public Map<String, String> authtest() {
+        Map<String, String> info = new HashMap<>();
+        info.put("name", "lin-api");
+        info.put("port", "8083");
+        return info;
+    }
+
 }
