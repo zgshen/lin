@@ -1,0 +1,18 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /mq
+
+spring:
+  application:
+    name: mq
+  rabbitmq:
+    addresses: 127.0.0.1:5672
+    username: mq
+    password: mq123
+    virtual-host: /
+
+default:
+  prefetch:
+    count: 10
+  concurrent: 5
