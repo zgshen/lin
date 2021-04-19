@@ -26,7 +26,7 @@ public class MQProductTransService {
 
     @Transactional
     public void sendMsg(String msg) {
-        log.info("发送消息：{}", msg);
+        log.info("生产者发送消息：{}", msg);
         rabbitTemplate.convertAndSend(RabbitMQConfig.LIN_MQ_EXCHANGE, RabbitMQConfig.LIN_MQ_KEY.replace("*", "TEST"), msg);
         //包含字符测试异常事务
         if (msg == null || msg.contains("test")) {
