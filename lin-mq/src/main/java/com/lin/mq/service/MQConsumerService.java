@@ -19,6 +19,9 @@ public class MQConsumerService {
         log.info("获取mq消息：{}", msg);
     }*/
 
+    /**
+     * @RabbitListener 在类上有奇怪错误可以放到方法这里试试
+     */
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = RabbitMQConfig.LIN_MQ_QUEUE, autoDelete = "false"),
             exchange = @Exchange(value = RabbitMQConfig.LIN_MQ_EXCHANGE, type = ExchangeTypes.TOPIC), key = RabbitMQConfig.LIN_MQ_KEY),

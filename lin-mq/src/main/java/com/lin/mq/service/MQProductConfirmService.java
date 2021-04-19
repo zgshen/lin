@@ -15,7 +15,7 @@ import java.util.UUID;
  * 生产者确认机制
  */
 @Slf4j
-@Service
+//@Service
 public class MQProductConfirmService implements RabbitTemplate.ConfirmCallback , RabbitTemplate.ReturnCallback {
 
     @Autowired

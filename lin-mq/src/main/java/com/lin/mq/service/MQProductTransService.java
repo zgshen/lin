@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct;
  * mq事务机制，需要配置RabbitTransactionManager
  */
 @Slf4j
-//@Service
+@Service
 public class MQProductTransService {
 
     @Autowired

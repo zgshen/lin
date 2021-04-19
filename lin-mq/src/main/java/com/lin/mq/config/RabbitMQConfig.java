@@ -46,11 +46,10 @@ public class RabbitMQConfig {
      * mq事务配置
      * MQProductTransService 对应用
      */
-    /*@Bean
+    @Bean
     public RabbitTransactionManager rabbitTransactionManager(CachingConnectionFactory connectionFactory) {
         return new RabbitTransactionManager(connectionFactory);
-    }*/
-
+    }
 
     /**
      * 以上为生产者配置
@@ -66,7 +65,11 @@ public class RabbitMQConfig {
 
 
     /**
-     *
+     * 对应的 yml 配置
+     * spring.rabbitmq.listener.simple.acknowledge-mode=manual #设置消费端手动 ack
+     * spring.rabbitmq.listener.simple.concurrency=1 #消费者最小数量
+     * spring.rabbitmq.listener.simple.max-concurrency=10 #消费之最大数量
+     * spring.rabbitmq.listener.simple.prefetch=2 #在单个请求中处理的消息个数，他应该大于等于事务数量(unack的最大数量)
      * @return
      */
     @Bean("pointTaskContainerFactory")
