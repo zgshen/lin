@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lin-reddisson</artifactId>
+    <artifactId>lin-redis</artifactId>
 
     <dependencies>
         <dependency>
