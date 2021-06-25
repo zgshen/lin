@@ -8,3 +8,9 @@ server:
 redisson:
   host:
     config: redis://192.168.56.101:6379
+
+
+spring:
+  redis:
+    host: 192.168.56.101
+    port: 6379

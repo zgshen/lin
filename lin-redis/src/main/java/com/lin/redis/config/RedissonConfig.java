@@ -1,4 +1,4 @@
-package com.lin.redisson.config;
+package com.lin.redis.config;
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;

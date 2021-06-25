@@ -1,6 +1,6 @@
-package com.lin.redisson.controller;
+package com.lin.redis.controller;
 
-import com.lin.redisson.service.RedissonService;
+import com.lin.redis.service.RedissonService;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RAtomicLong;
 import org.redisson.api.RLock;
@@ -35,6 +35,7 @@ public class RedissonController {
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 RLock lock = redissonService.getRLock(key);
+                //10s 过期，多线程一个一个排队
                 lock.lock(10, TimeUnit.SECONDS);
                 log.info("Thread [{}] lock [{}] success", Thread.currentThread().getName(), key);
             }).start();
@@ -46,6 +47,7 @@ public class RedissonController {
     public String tryLock(String key) {
         RLock lock = redissonService.getRLock(key);
         try {
+            //5s 尝试获取 锁时间，获得后 10s 过期
             boolean bs = lock.tryLock(5, 10, TimeUnit.SECONDS);
             if (bs) {
                 // 业务代码
