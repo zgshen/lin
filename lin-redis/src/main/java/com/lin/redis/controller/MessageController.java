@@ -1,7 +1,7 @@
 package com.lin.redis.controller;
 
 import com.lin.redis.message.MsgConstant;
-import com.lin.redis.message.pubsub.MessgePublish;
+import com.lin.redis.message.pubsub.MessagePublish;
 import com.lin.redis.message.pushpop.PushPopService;
 import com.lin.redis.message.sortedset.SortedSetService;
 import com.lin.redis.message.stream.TestStreamProducer;
@@ -19,7 +19,7 @@ public class MessageController {
     private final static String LIST_PUSH_POP_MSG = "msg:list-push-pop";
 
     @Autowired
-    MessgePublish messgePublish;
+    MessagePublish messgePublish;
     @Autowired
     PushPopService pushPopService;
     @Autowired

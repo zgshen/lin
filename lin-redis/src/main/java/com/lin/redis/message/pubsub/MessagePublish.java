@@ -5,7 +5,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MessgePublish {
+public class MessagePublish {
 
     @Autowired
     StringRedisTemplate redisTemplate;

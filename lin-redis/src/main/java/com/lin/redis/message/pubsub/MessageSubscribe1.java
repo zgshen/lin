@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class MessageSubscribe implements MessageListener {
+public class MessageSubscribe1 implements MessageListener {
 
     @Override
     public void onMessage(Message message, byte[] bytes) {
-        log.info("sub, topic name: {}, message: {}", new String(bytes), new String(message.getBody()));
+        log.info("sub1, topic name: {}, message: {}", new String(bytes), new String(message.getBody()));
     }
 
 }

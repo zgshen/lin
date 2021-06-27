@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
-import com.lin.redis.message.MsgConstant;
 import com.lin.redis.message.pubsub.MessageSubscribe;
+import com.lin.redis.message.pubsub.MessageSubscribe1;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -16,6 +16,9 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+
+import static com.lin.redis.message.MsgConstant.PUB_SUB_MSG;
+import static com.lin.redis.message.MsgConstant.PUB_SUB_MSG1;
 
 @Configuration
 public class RedisConfig {
@@ -58,9 +61,9 @@ public class RedisConfig {
                                                    MessageListenerAdapter adapter, MessageListenerAdapter adapter1) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
-        //主题的监听
-        container.addMessageListener(adapter, new PatternTopic(MsgConstant.PUB_SUB_MSG));
-        container.addMessageListener(adapter, new PatternTopic(MsgConstant.PUB_SUB_MSG1));
+        //主题的监听，adapter 和 adapter1 对应下面两个 bean 实例
+        container.addMessageListener(adapter, new PatternTopic(PUB_SUB_MSG));
+        container.addMessageListener(adapter1, new PatternTopic(PUB_SUB_MSG1));
         return container;
     }
 
@@ -71,13 +74,13 @@ public class RedisConfig {
      */
     @Bean
     public MessageListenerAdapter adapter(MessageSubscribe message){
-        // MessgePublish 的 onMessage 监听获取订阅数据
+        // MessageSubscribe 的 onMessage 监听获取订阅数据
         return new MessageListenerAdapter(message, "onMessage");
     }
 
     @Bean
-    public MessageListenerAdapter adapter1(MessageSubscribe message){
-        // MessgePublish 的 onMessage
+    public MessageListenerAdapter adapter1(MessageSubscribe1 message){
+        // MessageSubscribe1 的 onMessage
         return new MessageListenerAdapter(message, "onMessage");
     }
 
