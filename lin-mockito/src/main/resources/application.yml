@@ -1,0 +1,15 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.1:3306/lin?characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: nathan
+    password: nathan!#123
+    druid:
+      initialSize: 1
+      minIdle: 3
+      maxActive: 20
+
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
