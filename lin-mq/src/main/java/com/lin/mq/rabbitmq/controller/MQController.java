@@ -1,8 +1,6 @@
-package com.lin.mq.controller;
+package com.lin.mq.rabbitmq.controller;
 
-import com.lin.mq.service.MQProductConfirmService;
-import com.lin.mq.service.MQProductService;
-import com.lin.mq.service.MQProductTransService;
+import com.lin.mq.rabbitmq.service.MQProductTransService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +16,7 @@ public class MQController {
 
     @PostMapping("/send")
     public String sendMsg(@RequestBody String msg) {
+
         log.info(msg);
         mqProductService.sendMsg(msg);
         return "ok";

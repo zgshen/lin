@@ -1,6 +1,6 @@
-package com.lin.mq.service;
+package com.lin.mq.rabbitmq.service;
 
-import com.lin.mq.config.RabbitMQConfig;
+import com.lin.mq.rabbitmq.config.RabbitMQConfig;
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.ExchangeTypes;
