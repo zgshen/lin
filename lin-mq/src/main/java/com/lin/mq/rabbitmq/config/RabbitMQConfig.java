@@ -29,11 +29,15 @@ public class RabbitMQConfig {
 
     @Bean
     public TopicExchange topicExchange() {
+        // this(name, durable:true, autoDelete:false);
+        // 默认构造持久化、不自动删除
         return new TopicExchange(LIN_MQ_EXCHANGE);
     }
 
     @Bean
     public Queue queue() {
+        // this(name, durable:true, exclusive:false, autoDelete:false);
+        // 默认构造持久化、非排他独占、不自动删除
         return new Queue(LIN_MQ_QUEUE);
     }
 

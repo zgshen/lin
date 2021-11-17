@@ -13,10 +13,11 @@ public class MQController {
 
     @Autowired
     MQProductTransService mqProductService;
+    /*@Autowired
+    MQProductService mqProductService;*/
 
     @PostMapping("/send")
     public String sendMsg(@RequestBody String msg) {
-
         log.info(msg);
         mqProductService.sendMsg(msg);
         return "ok";
