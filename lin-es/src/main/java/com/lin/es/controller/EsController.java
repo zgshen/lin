@@ -34,7 +34,7 @@ public class EsController {
         return coupon;
     }
 
-    @PostMapping("/getAll")
+    @GetMapping("/getAll")
     public List getAll() {
         Iterator<Coupon> iterator = couponRepository.findAll().iterator();
         List<Coupon> couponList = new ArrayList<>();
@@ -43,7 +43,7 @@ public class EsController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteById(Long id) {
+    public String deleteById(@PathVariable Long id) {
         couponRepository.deleteById(id);
         return "ok";
     }
