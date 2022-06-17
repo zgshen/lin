@@ -40,13 +40,13 @@ public class BizController {
 
     @RequestMapping("/push1")
     public String bizTest1(String type, String msg) {
-        pushServiceInterfaceContext.getService(type).push(msg);
+        pushServiceInterfaceContext.apply(type, msg);
         return "ok";
     }
 
     @RequestMapping("/push2")
     public String bizTest2(String type, String msg) {
-        pushServiceMapContext.getService(type).push(msg);
+        pushServiceMapContext.apply(type, msg);
         return "ok";
     }
 }

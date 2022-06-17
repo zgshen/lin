@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+/**
+ * 使用工厂模式的方法
+ */
 public class PushFactory {
 
     private static Map<String, PushService> pushMap = new HashMap<>();

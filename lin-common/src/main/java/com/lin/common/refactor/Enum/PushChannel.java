@@ -1,6 +1,6 @@
 package com.lin.common.refactor.Enum;
 
-public enum PUSH_CHANNEL {
+public enum PushChannel {
 
     sms(PushService.smsPush()),
     email(PushService.emailPush()),
@@ -8,7 +8,7 @@ public enum PUSH_CHANNEL {
 
     PushService pushService;
 
-    private PUSH_CHANNEL(PushService pushService) {
+    private PushChannel(PushService pushService) {
         this.pushService = pushService;
     }
 

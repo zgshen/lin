@@ -1,6 +1,6 @@
 package com.lin.common;
 
-import com.lin.common.refactor.Enum.PUSH_CHANNEL;
+import com.lin.common.refactor.Enum.PushChannel;
 import com.lin.common.refactor.factory.PushFactory;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -39,9 +39,7 @@ public class PushServiceTest {
      */
     @Test
     public void test_enum() {
-        boolean push = PUSH_CHANNEL.valueOf("sms").getPushService().push("msg...");
+        boolean push = PushChannel.valueOf("sms").getPushService().push("msg...");
         Assert.assertEquals(true, push);
-
-        PUSH_CHANNEL.valueOf("sms").getPushService().push("sms msg.");
     }
 }

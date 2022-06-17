@@ -36,9 +36,9 @@ public class PushServiceStrategyTest {
     public void test_spring_interface() {
         String type = "email", msg = "hello world.";
         System.out.println("-----interface-----");
-        pushServiceInterfaceContext.getService(type).push(msg);
+        pushServiceInterfaceContext.apply(type, msg);
         System.out.println("--------map--------");
-        pushServiceMapContext.getService(type).push(msg);
+        pushServiceMapContext.apply(type, msg);
     }
 
 }

@@ -21,10 +21,11 @@ public class PushServiceInterfaceContext {
         this.serviceList = serviceList;
     }
 
-    public PushService getService(String type) {
+    public boolean apply(String type, String msg) {
         Optional<PushService> pushService = serviceList.stream()
                 .filter(service -> service.type() == PushChannel.valueOf(type))
                 .findAny();
-        return pushService.orElseThrow(() -> new NoSuchElementException());
+        PushService service = pushService.orElseThrow(() -> new NoSuchElementException());
+        return service.push(msg);
     }
 }

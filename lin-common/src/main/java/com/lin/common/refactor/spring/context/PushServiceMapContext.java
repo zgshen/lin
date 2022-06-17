@@ -18,7 +18,8 @@ public class PushServiceMapContext {
         this.serviceMap.putAll(serviceMap);
     }
 
-    public PushService getService(String type) {
-        return serviceMap.get(type + "PushService");
+    public boolean apply(String type, String msg) {
+        PushService service = serviceMap.get(type + "PushService");
+        return service.push(msg);
     }
 }
