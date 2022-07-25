@@ -1,4 +1,4 @@
 config:
   name: lin-config-client
-  active: dev
+  active: dev-modify
   version: 1.0.0
