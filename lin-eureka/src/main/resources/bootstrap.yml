@@ -17,7 +17,7 @@ spring:
     active: uat
 
 log:
-  dir: /app/logs
+  dir: /home/nathan/app/logs
 logging:
   level:
     root: info

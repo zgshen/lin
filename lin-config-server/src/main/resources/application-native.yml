@@ -1,0 +1,17 @@
+# 本地配置文件名字必须是native，不能是local或其他名字
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          #resources目录下 #放在config server下请求ip:/actuator/refresh自动刷新不会生效，需要放在其他地方用绝对路径
+          #search-locations: classpath:/config
+          search-locations: file:///project/gitFile/lin/lin-config-spring
+    bus:
+      trace:
+        enabled: true # 是否启用bus追踪
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest

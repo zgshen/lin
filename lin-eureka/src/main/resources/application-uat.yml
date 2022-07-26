@@ -2,10 +2,10 @@ eureka:
   client:
     healthcheck:
       enabled: true
-    register-with-eureka: true
+    register-with-eureka: false
     service-url:
-      defaultZone: http://127.0.0.1:8080/eureka/
-    fetch-registry: true
+      defaultZone: http://127.0.0.1:8000/eureka/
+    fetch-registry: false
   instance:
     prefer-ip-address: true
     hostname: ${spring.cloud.client.ip-address}

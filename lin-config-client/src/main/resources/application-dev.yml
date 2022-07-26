@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    config:
+      profile: dev
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+#Eureka配置
+eureka:
+  client:
+    serviceUrl:
+      #服务注册中心地址，需按照注册中心IP进行对应修改
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true

@@ -1,0 +1,35 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          #uri: https://github.com/zgshen/lin.git # 若是git协议需要设置ssh key
+          uri: https://gitee.com/zdshen/lin-config-spring.git
+          #search-paths: lin-config-spring #配置文件所在目录
+          default-label: master
+          # http 协议
+          #username: # 公开库不需要填写
+          #password: # github私有库已经不支持账号密码方式访问，需要用git协议
+          # git 协议
+          #ignore-local-ssh-settings: true # git协议私有库忽略，手动填写下面private key，rsa过时，用ecdsa签名算法
+          #private-key: |
+          #             -----BEGIN EC PRIVATE KEY-----
+          #             ......
+          #             -----END EC PRIVATE KEY-----
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+#Eureka配置
+eureka:
+  client:
+    serviceUrl:
+      #服务注册中心地址，需按照注册中心IP进行对应修改
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true
