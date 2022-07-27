@@ -1,7 +1,5 @@
 spring:
   cloud:
-    config:
-      profile: dev
     bus:
       trace:
         enabled: true
@@ -10,6 +8,11 @@ spring:
     port: 5672
     username: guest
     password: guest
+  #datasource:
+  #  driver-class-name: com.mysql.cj.jdbc.Driver
+  #  url: jdbc:mysql://192.168.56.101:3306/lin?characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+  #  username: nathan
+  #  password: nathan!#123
 
 #Eureka配置
 eureka:

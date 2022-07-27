@@ -10,6 +10,11 @@ spring:
       uri: http://localhost:9000
       label: master
       profile: dev
+      username: nathan
+      password: 123
+
+encrypt:
+  key: ${ENCRYPT_KEY}
 
 management:
   endpoint:

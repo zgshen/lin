@@ -2,3 +2,11 @@ config:
   name: lin-config-client
   active: dev
   version: 1.0.0
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lin?characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+    # 包含{cipher}的内容必须放在引号里面
+    username: '{cipher}cab819603b5cb0e87fc7597c9948b33270a9d16954b3113ca14741a3adbd5a09'
+    password: '{cipher}6a74f568c18e7d926bf8ab0427a03d8fb8f307f58088a196b7450cac5add41c0'

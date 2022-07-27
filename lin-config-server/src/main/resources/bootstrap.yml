@@ -4,7 +4,11 @@ spring:
   application:
     name: lin-config-server
   profiles:
-    active: remote
+    active: native
+  security:
+    user:
+      name: nathan
+      password: 123
 
 #设置暴露actuator的那些接口，*为暴露全部接口
 management:
@@ -12,3 +16,5 @@ management:
     web:
       exposure:
         include: '*'
+encrypt:
+  key: ${ENCRYPT_KEY}
