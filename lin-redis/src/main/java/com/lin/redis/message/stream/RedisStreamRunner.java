@@ -45,19 +45,19 @@ public class RedisStreamRunner implements ApplicationRunner, DisposableBean {
 
         StreamMessageListenerContainer<String, MapRecord<String, String, String>> container =
                 StreamMessageListenerContainer.create(redisConnectionFactory, options);
-
+        
         initStreamAndGroup(stringRedisTemplate.opsForStream(), STREAM_KEY, STREAM_GROUP);
-        // autoAcknowledge 为 false，需要手动 ack 的
-        container.receive(Consumer.from(STREAM_GROUP, STREAM_CONSUMER),
-                StreamOffset.create(STREAM_KEY, ReadOffset.lastConsumed()),
-                new TestStreamListener(stringRedisTemplate));
+        // receive 方法内部 autoAcknowledge 为 false，需要手动 ack 的
+        container.receive(Consumer.from(STREAM_GROUP, STREAM_CONSUMER), //消费组和消费者，这里只演示一个消费者
+                StreamOffset.create(STREAM_KEY, ReadOffset.lastConsumed()),//读取 id 大于消费者组最后消费的所有新到达元素
+                new TestStreamListener(stringRedisTemplate));//消费消息，业务处理
 
         this.container = container;
         this.container.start();
     }
 
     /**
-     * 不存在则创建
+     * 消费组，不存在则创建
      */
     private void initStreamAndGroup(StreamOperations<String, ?, ?> ops, String streamKey, String group) {
         String status = "OK";

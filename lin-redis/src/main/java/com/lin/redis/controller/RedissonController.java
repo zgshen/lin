@@ -51,7 +51,7 @@ public class RedissonController {
             boolean bs = lock.tryLock(5, 10, TimeUnit.SECONDS);
             if (bs) {
                 // 业务代码
-                log.info("do something, key:{}: " + key);
+                log.info("do something, key:{}: ", key);
 
                 lock.unlock();
             } else {

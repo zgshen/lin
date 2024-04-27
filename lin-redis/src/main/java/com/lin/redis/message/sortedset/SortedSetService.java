@@ -29,6 +29,7 @@ public class SortedSetService {
     public void consume() {
         while (true) {
             //(K key, double min, double max, long offset, long count)
+            //键，要取区间score最小值，要取区间score最大值，偏移（从哪个位置开始），数量
             Set<String> set = redisTemplate.opsForZSet().rangeByScore(MsgConstant.SORTED_SET_MSG, 0, System.currentTimeMillis(), 0, 1);
             if (set == null || set.isEmpty()) continue;
             log.info(set.toString());

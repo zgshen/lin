@@ -17,8 +17,7 @@ import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import static com.lin.redis.message.MsgConstant.PUB_SUB_MSG;
-import static com.lin.redis.message.MsgConstant.PUB_SUB_MSG1;
+import static com.lin.redis.message.MsgConstant.*;
 
 @Configuration
 public class RedisConfig {
@@ -61,9 +60,9 @@ public class RedisConfig {
                                                    MessageListenerAdapter adapter, MessageListenerAdapter adapter1) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
-        //主题的监听，adapter 和 adapter1 对应下面两个 bean 实例
-        container.addMessageListener(adapter, new PatternTopic(PUB_SUB_MSG));
-        container.addMessageListener(adapter1, new PatternTopic(PUB_SUB_MSG1));
+        //主题的监听，adapter 和 adapter1 对应下面两个 bean 实例，有多少订阅者都在下面加上
+        container.addMessageListener(adapter, new PatternTopic(PUB_SUB_MSG));//普通的订阅者
+        container.addMessageListener(adapter1, new PatternTopic(PUB_SUB_MSG_FUZZY));//模糊匹配的订阅者
         return container;
     }
 

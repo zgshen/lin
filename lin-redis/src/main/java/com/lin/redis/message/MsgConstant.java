@@ -3,9 +3,11 @@ package com.lin.redis.message;
 public class MsgConstant {
 
     public final static String LIST_PUSH_POP_MSG = "msg:list-push-pop";
+    public final static String LIST_PUSH_POP_BACKUP_MSG = "msg:list-push-pop-backup";
 
     public final static String PUB_SUB_MSG = "msg:pub-sub";
-    public final static String PUB_SUB_MSG1 = "msg:pub-sub1";
+    // 模糊匹配
+    public final static String PUB_SUB_MSG_FUZZY = "msg:*";
     public final static int PUB_SUB_TIME_OUT = 10;
 
     public final static String SORTED_SET_MSG = "msg:sorted-set";

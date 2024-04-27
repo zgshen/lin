@@ -33,9 +33,9 @@ public class MessageController {
      * @return
      */
     @RequestMapping("/pubSub")
-    public String pubSub(String msg) {
+        public String pubSub(String msg) {
         messgePublish.publish(MsgConstant.PUB_SUB_MSG, msg);
-        messgePublish.publish(MsgConstant.PUB_SUB_MSG1, msg);
+        //messgePublish.publish(MsgConstant.PUB_SUB_MSG1, msg);
         return "ok";
     }
 
@@ -61,6 +61,12 @@ public class MessageController {
         return "ok";
     }
 
+    @RequestMapping("/listPopBackup")
+    public String listPopBackup() {
+        pushPopService.rightPopLeftPush();
+        return "ok";
+    }
+
     /**
      * sorted set 延迟消息队列
      * @return
@@ -83,7 +89,7 @@ public class MessageController {
      */
     @RequestMapping("/stream")
     public String stream(String msg) {
-        streamProducer.add(STREAM_KEY, "redis stream test...");
+        streamProducer.add(STREAM_KEY, msg);
         return "ok";
     }
 }
